@@ -12,7 +12,7 @@ jobs:
     - name: pull-request-action
       uses: vsoch/pull-request-action@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
         PULL_REQUEST_FROM_BRANCH: "gloriachen09/test-repo:main"
         PULL_REQUEST_BRANCH: "chenYayaya/test-repo:main"
