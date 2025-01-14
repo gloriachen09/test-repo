@@ -22,7 +22,11 @@ jobs:
 
     - name: Create Pull Request
       run: |
-        gh pr create --title "Automated PR" --body "This is an automated PR created by GitHub Actions." --base chenYayaya/test-repo --head gloriachen09/test-repo:main
+        gh pr create \
+        --title "Automated PR" \
+        --body "This is an automated PR created by GitHub Actions." \
+        --base "chenYayaya/test-repo" \
+        --head "gloriachen09/test-repo:main"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
