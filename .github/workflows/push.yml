@@ -13,6 +13,7 @@ jobs:
       uses: vsoch/pull-request-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.TEST_PAT }}
+        PULL_REQUEST_TOKEN: ${{ secrets.TEST_PAT }}
         PULL_REQUEST_FROM_BRANCH: "gloriachen09/test-repo"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: "chenYayaya/test-repo"
