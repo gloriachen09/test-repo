@@ -9,24 +9,10 @@ jobs:
     name: PullRequestAction
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Install GitHub CLI
-      run: |
-        sudo apt update
-        sudo apt install gh -y
-
-    # - name: Authenticate GitHub CLI
-    #   run: gh auth login --with-token ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Create Pull Request
-      run: |
-        gh pr create \
-        --title "Automated PR" \
-        --body "This is an automated PR created by GitHub Actions." \
-        --base "main" \
-        --head "${{github.event.pull_request.head.ref}}"
+    - name: pull-request-action
+      uses: vsoch/pull-request-action@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        GITHUB_TOKEN: ${{ secrets.TEST_TOKEN }}
+        PULL_REQUEST_FROM_BRANCH: "gloriachen09/test-repo"
+        PULL_REQUEST_BRANCH: "main"
+        PULL_REQUEST_REPOSITORY: "chenYayaya/test-repo"
