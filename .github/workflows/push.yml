@@ -25,7 +25,7 @@ jobs:
         gh pr create \
         --title "Automated PR" \
         --body "This is an automated PR created by GitHub Actions." \
-        --base "chenYayaya/test-repo" \
+        --base "chenYayaya/test-repo:main" \
         --head "main"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
