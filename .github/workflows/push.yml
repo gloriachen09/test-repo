@@ -14,6 +14,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_PAT }}
-        PULL_REQUEST_FROM_BRANCH: "gloriachen09/main"
-        PULL_REQUEST_BRANCH: "main"
+        PULL_REQUEST_FROM_BRANCH: "gloriachen09/test-repo:main"
+        PULL_REQUEST_BRANCH: "chenYayaya/test-repo:main"
         PULL_REQUEST_REPOSITORY: "chenYayaya/test-repo"
