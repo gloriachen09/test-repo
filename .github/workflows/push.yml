@@ -17,3 +17,4 @@ jobs:
         PULL_REQUEST_FROM_BRANCH: "gloriachen09:main"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: chenYayaya/test-repo
+        PULL_REQUEST_REVIEWERS: gloria_chen@realsil.com.cn
