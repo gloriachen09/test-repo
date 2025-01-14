@@ -18,5 +18,5 @@ jobs:
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: chenYayaya/test-repo
         PULL_REQUEST_REVIEWERS: chenYayaya
-        PASS_IF_EXISTS: true
+        # PASS_IF_EXISTS: true
         PULL_REQUEST_UPDATE: true
