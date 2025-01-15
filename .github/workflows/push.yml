@@ -12,11 +12,11 @@ jobs:
     - name: pull-request-action
       uses: vsoch/pull-request-action@master
       env:
-        GITHUB_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
-        PULL_REQUEST_FROM_BRANCH: "gloriachen09:main"
+        PULL_REQUEST_FROM_BRANCH: "main"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: chenYayaya/test-repo
-        PULL_REQUEST_REVIEWERS: gloriachen09
+        # PULL_REQUEST_REVIEWERS: gloriachen09
         PASS_IF_EXISTS: true
         PULL_REQUEST_UPDATE: true
