@@ -21,6 +21,7 @@ jobs:
       run: |
         git checkout main
         git checkout -b new-feature-branch
+        git push origin new-feature-branch
 
     - name: pull-request-action
       uses: vsoch/pull-request-action@master
