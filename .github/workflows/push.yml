@@ -15,7 +15,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
         PULL_REQUEST_FROM_BRANCH: "gloriachen09:main"
-        PULL_REQUEST_BRANCH: "main"
+        PULL_REQUEST_BRANCH: "chenYayaya:main"
         PULL_REQUEST_REPOSITORY: chenYayaya/test-repo
         PULL_REQUEST_REVIEWERS: gloriachen09
         PASS_IF_EXISTS: true
