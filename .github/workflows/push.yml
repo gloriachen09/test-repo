@@ -9,26 +9,12 @@ jobs:
     name: PullRequestAction
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Set up Git
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-
-    - name: Create new branch
-      run: |
-        git checkout main
-        git checkout -b new-feature-branch
-        git push origin new-feature-branch
-
     - name: pull-request-action
       uses: vsoch/pull-request-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
-        PULL_REQUEST_FROM_BRANCH: "new-feature-branch"
+        PULL_REQUEST_FROM_BRANCH: "gloriachen09:main"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: chenYayaya/test-repo
         # PULL_REQUEST_REVIEWERS: gloriachen09
