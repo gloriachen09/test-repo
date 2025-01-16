@@ -25,19 +25,19 @@ jobs:
         echo "CURRENT_BRANCH=$(date '+gloriachen09:main_sync_%Y%m%d')" >> $GITHUB_ENV
         echo "CURRENT_BRANCH2=gloriachen09:${GITHUB_REF##*/}" >> $GITHUB_ENV
         # echo "PULL_REQUEST_FROM_BRANCH=$(date '+gloriachen09:main_sync_%Y%m%d')" >> $GITHUB_ENV
-        echo "PULL_REQUEST_FROM_BRANCH=gloriachen09:${GITHUB_REF##*/}" >> $GITHUB_ENV
+        # echo "PULL_REQUEST_FROM_BRANCH=gloriachen09:${GITHUB_REF##*/}" >> $GITHUB_ENV
     - name: pull-request-action
       id: pull_request
-      # uses: vsoch/pull-request-action@master
-      run: |
-          echo "Today's branch is $CURRENT_BRANCH"
-          echo "Today's branch is $CURRENT_BRANCH2"
-          echo "Today's date is $CURRENT_DATE"
-          ./pull_request.py
+      uses: vsoch/pull-request-action@v1
+      # run: |
+      #     echo "Today's branch is $CURRENT_BRANCH"
+      #     echo "Today's branch is $CURRENT_BRANCH2"
+      #     echo "Today's date is $CURRENT_DATE"
+      #     ./github/workflows/pull_request.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
-        # PULL_REQUEST_FROM_BRANCH: "gloriachen09:main"
+        PULL_REQUEST_FROM_BRANCH: "gloriachen09:main"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: chenYayaya/test-repo
         # PULL_REQUEST_REVIEWERS: gloriachen09
