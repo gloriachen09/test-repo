@@ -9,8 +9,21 @@ jobs:
     name: PullRequestAction
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+        chmod u+x pull-request.py
     - name: pull-request-action
-      uses: vsoch/pull-request-action@master
+      id: pull_request
+      # uses: vsoch/pull-request-action@master
+      run: |
+          ./pull-request.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
