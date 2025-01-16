@@ -1,8 +1,8 @@
 name: Pull Request on Branch Push
 on:
   push:
-    branches:
-    - main
+    branches-ignore:
+    - master
 
 jobs:
   auto-pull-request:
@@ -19,10 +19,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
         chmod u+x pull_request.py
+    - name: Set branch as environment variable
+      run: echo "CURRENT_BRANCH=$(gloriachen09:main_sync_'+%Y_%m_%d')" >> $GITHUB_ENV
     - name: pull-request-action
       id: pull_request
       # uses: vsoch/pull-request-action@master
       run: |
+          echo "Today's branch is $CURRENT_BRANCH"
           ./pull_request.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
