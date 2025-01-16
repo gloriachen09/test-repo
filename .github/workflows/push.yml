@@ -1,22 +1,51 @@
 name: Pull Request on Branch Push
 on:
   push:
-    branches:
-    - main
+    branches-ignore:
+    - master
 
 jobs:
   auto-pull-request:
     name: PullRequestAction
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+        chmod u+x pull_request.py
+    - name: Set branch as environment variable
+      run: |
+        echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
+        echo "CURRENT_BRANCH=$(date '+gloriachen09:main_sync_%Y%m%d')" >> $GITHUB_ENV
     - name: pull-request-action
-      uses: vsoch/pull-request-action@master
+      id: pull_request
+      # uses: vsoch/pull-request-action@master
+      run: |
+          echo "Today's branch is $CURRENT_BRANCH"
+          echo "Today's date is $CURRENT_DATE"
+          ./pull_request.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
-        PULL_REQUEST_FROM_BRANCH: "main"
+        PULL_REQUEST_FROM_BRANCH: "gloriachen09:main"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: chenYayaya/test-repo
         # PULL_REQUEST_REVIEWERS: gloriachen09
         PASS_IF_EXISTS: true
         PULL_REQUEST_UPDATE: true
+    - name: Test outputs
+      env:
+        pull_request_number_output: ${{ steps.pull_request.outputs.pull_request_number }}
+        pull_request_url_output: ${{ steps.pull_request.outputs.pull_request_url }}
+      run: |
+        echo "Pull request number from output: ${pull_request_number_output}"
+        echo "Pull request url from output: ${pull_request_url_output}"
+        echo "Pull request number from environment: ${PULL_REQUEST_NUMBER}"
+        echo "Pull request url from environment: ${PULL_REQUEST_URL}"
+        echo "Another way to specify from output ${{ steps.pull_request.outputs.pull_request_number }}"
