@@ -1,0 +1,28 @@
+name: Delete Branch After PR Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  delete-branch:
+    if: ${{ github.event.pull_request.merged == true }}  # 仅在合并时运行
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Delete branch
+      env:
+        GITHUB_TOKEN: ${{ secrets.TEST_TOKEN_2 }}  # 使用fork库的Token
+        BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
+        OWNER: ${{ github.event.repository.owner.login }}
+        REPO: ${{ github.event.repository.name }}
+      run: |
+        echo "Deleting branch $BRANCH_NAME"
+        curl -X DELETE \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          "https://api.github.com/repos/$OWNER/$REPO/git/refs/heads/$BRANCH_NAME"
