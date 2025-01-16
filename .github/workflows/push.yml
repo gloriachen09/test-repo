@@ -9,16 +9,16 @@ jobs:
     name: PullRequestAction
     runs-on: ubuntu-latest
     steps:
-    # - uses: actions/checkout@v4
-    # - uses: actions/setup-python@v5
-    #   with:
-    #     python-version: '3.11'
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
 
-    # - name: Install dependencies
-    #   run: |
-    #     python -m pip install --upgrade pip
-    #     pip install requests
-    #     chmod u+x pull_request.py
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+        chmod u+x .github/workflows/pull_request.py
     - name: Set branch as environment variable
       run: |
         echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
@@ -28,12 +28,12 @@ jobs:
         # echo "PULL_REQUEST_FROM_BRANCH=gloriachen09:${GITHUB_REF##*/}" >> $GITHUB_ENV
     - name: pull-request-action
       id: pull_request
-      uses: vsoch/pull-request-action@v1
-      # run: |
-      #     echo "Today's branch is $CURRENT_BRANCH"
-      #     echo "Today's branch is $CURRENT_BRANCH2"
-      #     echo "Today's date is $CURRENT_DATE"
-      #     ./github/workflows/pull_request.py
+      # uses: vsoch/pull-request-action@v1
+      run: |
+          echo "Today's branch is $CURRENT_BRANCH"
+          echo "Today's branch is $CURRENT_BRANCH2"
+          echo "Today's date is $CURRENT_DATE"
+          ./.github/workflows/pull_request.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
