@@ -23,7 +23,7 @@ jobs:
       run: |
         echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
         echo "CURRENT_BRANCH=$(date '+gloriachen09:main_sync_%Y%m%d')" >> $GITHUB_ENV
-        echo "PULL_REQUEST_FROM_BRANCH=$(date '+gloriachen09:main_sync_%Y%m%d')" >> $GITHUB_ENV
+        echo "PULL_REQUEST_FROM_BRANCH=$(date '+gloriachen09:main2_sync_%Y%m%d')" >> $GITHUB_ENV
     - name: pull-request-action
       id: pull_request
       # uses: vsoch/pull-request-action@master
