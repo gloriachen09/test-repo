@@ -18,16 +18,16 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install requests
-        chmod u+x pull-request.py
+        chmod u+x pull_request.py
     - name: pull-request-action
       id: pull_request
       # uses: vsoch/pull-request-action@master
       run: |
-          ./pull-request.py
+          ./pull_request.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PULL_REQUEST_TOKEN: ${{ secrets.TEST_TOKEN_2 }}
-        PULL_REQUEST_FROM_BRANCH: "gloriachen09:new-feature-branch"
+        PULL_REQUEST_FROM_BRANCH: "gloriachen09:main"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: chenYayaya/test-repo
         # PULL_REQUEST_REVIEWERS: gloriachen09
