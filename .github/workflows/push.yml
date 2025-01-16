@@ -20,7 +20,8 @@ jobs:
         pip install requests
         chmod u+x pull_request.py
     - name: Set branch as environment variable
-      run: echo "CURRENT_BRANCH=$(gloriachen09:main_sync_'+%Y_%m_%d')" >> $GITHUB_ENV
+      env:
+        CURRENT_BRANCH: gloriachen09:main_sync_'+%Y_%m_%d'
     - name: pull-request-action
       id: pull_request
       # uses: vsoch/pull-request-action@master
