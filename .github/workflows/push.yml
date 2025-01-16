@@ -22,7 +22,7 @@ jobs:
     - name: Set branch as environment variable
       run: |
         echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
-        echo "CURRENT_BRANCH=$(date '+gloriachen09:main_sync_%Y-%m-%d')" >> $GITHUB_ENV
+        echo "CURRENT_BRANCH=$(date '+gloriachen09:main_sync_%Y%m%d')" >> $GITHUB_ENV
     - name: pull-request-action
       id: pull_request
       # uses: vsoch/pull-request-action@master
