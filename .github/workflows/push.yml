@@ -22,6 +22,8 @@ jobs:
     - name: Set branch as environment variable
       env:
         CURRENT_BRANCH: gloriachen09:main_sync_'+%Y_%m_%d'
+      run: |
+        echo "Today's branch is $CURRENT_BRANCH"
     - name: pull-request-action
       id: pull_request
       # uses: vsoch/pull-request-action@master
