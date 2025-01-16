@@ -9,16 +9,16 @@ jobs:
     name: PullRequestAction
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+    # - uses: actions/checkout@v4
+    # - uses: actions/setup-python@v5
+    #   with:
+    #     python-version: '3.11'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests
-        chmod u+x pull_request.py
+    # - name: Install dependencies
+    #   run: |
+    #     python -m pip install --upgrade pip
+    #     pip install requests
+    #     chmod u+x pull_request.py
     - name: Set branch as environment variable
       run: |
         echo "CURRENT_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
