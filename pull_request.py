@@ -230,7 +230,7 @@ def find_pull_request(listing, source):
     """
     if listing:
         for entry in listing:
-            if entry.get("head", {}).get("ref", "") == source:
+            if entry.get("head", {}).get("label", "") == source:
                 print("Pull request from %s is already open!" % source)
                 return entry
 
