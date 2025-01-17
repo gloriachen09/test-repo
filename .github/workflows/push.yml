@@ -45,7 +45,7 @@ jobs:
         PULL_REQUEST_FROM_BRANCH: "gloriachen09:main"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: chenYayaya/test-repo
-        # PULL_REQUEST_REVIEWERS: gloriachen09
+        PULL_REQUEST_REVIEWERS: chenYayaya
         PASS_IF_EXISTS: true
         PULL_REQUEST_UPDATE: true
     - name: Test outputs
